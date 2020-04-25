@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 
 import { Form, FormikProvider, Input } from '../../src';
+import required from './validators/required';
 
 const schema = [
 	{
@@ -9,20 +10,25 @@ const schema = [
 		label: 'Name',
 		component: Input,
 		value: 'test',
+		validators: [required],
 	},
 ];
+
+const handleSubmit = (values, formik) => {
+	console.warn(values);
+};
 
 export default class Demo extends Component {
 	render() {
 		return <div>
 			<FormikProvider
 				schema={schema}
-				onSubmit={console.log}
+				onSubmit={handleSubmit}
 				render={({ formik, schema }) => {
 					return (
 						<div>
 							<Form formik={formik} schema={schema} />
-							<button onClick={formik.handleSubmit}>
+							<button onClick={formik.handleSubmit} type="submit">
                 Submit
 							</button>
 						</div>
