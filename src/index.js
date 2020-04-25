@@ -1,9 +1,4 @@
-import React, {Component} from 'react'
+export { FormikProvider } from './formikProvider.component';
+export { Form } from './form.component';
 
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
-}
+export { Input } from './input.component';
