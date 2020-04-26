@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { getIn } from 'formik';
 
 import chainValidators from './utils/chainValidators';
+
+import { FormikPropTypes, SchemaPropTypes } from './propTypes';
 
 export const Form = ({ formik, schema }) => {
 	const inputs = schema.map(field => {
@@ -23,4 +24,9 @@ export const Form = ({ formik, schema }) => {
 	return (
 		<form>{inputs}</form>
 	);
+};
+
+Form.propTypes = {
+	formik: FormikPropTypes,
+	schema: SchemaPropTypes,
 };

@@ -14,7 +14,7 @@ const schema = [
 	},
 ];
 
-const handleSubmit = (values, formik) => {
+const handleSubmit = (values) => {
 	console.warn(values);
 };
 
