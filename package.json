@@ -20,11 +20,9 @@
     "test:watch": "nwb test-react --server",
     "lint": "eslint src"
   },
-  "dependencies": {
-    "formik": "^2.1.4",
-    "yup": "^0.28.4"
-  },
+  "dependencies": { },
   "peerDependencies": {
+    "formik": "^2.1.4",
     "react": "16.x"
   },
   "devDependencies": {
@@ -34,7 +32,8 @@
     "nwb": "0.24.x",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "shards-react": "^1.0.3"
   },
   "author": "",
   "homepage": "",
