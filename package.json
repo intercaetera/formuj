@@ -18,9 +18,10 @@
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server",
-    "lint": "eslint src"
+    "lint": "eslint src",
+		"lint-demo": "eslint demo"
   },
-  "dependencies": { },
+  "dependencies": {},
   "peerDependencies": {
     "formik": "^2.1.4",
     "react": "16.x"
@@ -29,6 +30,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
     "nwb": "0.24.x",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

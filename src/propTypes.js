@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 export const SchemaPropTypes = PropTypes.arrayOf(PropTypes.shape({
 	name: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	component: PropTypes.node.isRequired,
-	
+	component: PropTypes.func.isRequired,
 	value: PropTypes.any,
 	validators: PropTypes.arrayOf(PropTypes.func),
 }));

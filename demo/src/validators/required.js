@@ -1,6 +1,6 @@
 const required = value => {
-	if (!value) {
-		return 'Required!';
+	if (value === undefined || value.length === 0) {
+		return 'This field is required.';
 	}
 };
 

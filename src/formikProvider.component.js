@@ -26,7 +26,6 @@ export const FormikProvider = ({
 			return errors;
 		}, {});
 		
-		console.error(errors);
 		return errors;
 	};
 

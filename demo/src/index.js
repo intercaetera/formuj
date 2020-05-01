@@ -1,42 +1,45 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import {render} from 'react-dom';
 
-import { Form, FormikProvider, Input } from '../../src';
-import required from './validators/required';
+import { 
+	Navbar,
+	NavbarBrand,
+	Nav,
+	NavItem,
+	NavLink,
+	Container,
+} from 'shards-react';
+import SignupForm from './SignupForm/SignupForm';
+import SomethingElse from './SomethingElse';
 
-const schema = [
-	{
-		name: 'potato',
-		label: 'Name',
-		component: Input,
-		value: 'test',
-		validators: [required],
-	},
-];
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'shards-ui/dist/css/shards.min.css';
 
-const handleSubmit = (values) => {
-	console.warn(values);
+const Demo = () => {
+	return (
+		<div>
+			<Navbar type="dark" theme="primary" expand="md">
+				<NavbarBrand href="#">Formuj Demo</NavbarBrand>
+				<Nav navbar>
+					<NavItem>
+						<NavLink href="#">
+							Signup Form
+						</NavLink>
+					</NavItem>
+
+					<NavItem>
+						<NavLink href="#">
+							Something Else
+						</NavLink>
+					</NavItem>
+				</Nav>
+			</Navbar>
+
+			<Container style={{padding: '2rem', background: '#eee', height: '100%'}}>
+				<SignupForm />
+			</Container>
+		</div>
+	);
 };
-
-export default class Demo extends Component {
-	render() {
-		return <div>
-			<FormikProvider
-				schema={schema}
-				onSubmit={handleSubmit}
-				render={({ formik, schema }) => {
-					return (
-						<div>
-							<Form formik={formik} schema={schema} />
-							<button onClick={formik.handleSubmit} type="submit">
-                Submit
-							</button>
-						</div>
-					);
-				}}
-			/>
-		</div>;
-	}
-}
 
 render(<Demo/>, document.querySelector('#demo'));
