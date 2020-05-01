@@ -15,33 +15,46 @@
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",
-    "test": "nwb test-react",
-    "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server",
     "lint": "eslint src",
-		"lint-demo": "eslint demo"
+    "lint-demo": "eslint demo",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --verbose"
   },
-  "dependencies": {},
+  "dependencies": {
+    "formik": "^2.1.4"
+  },
   "peerDependencies": {
-    "formik": "^2.1.4",
     "react": "16.x"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.4",
+    "babel-jest": "^25.5.1",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
+    "jest": "^25.5.3",
     "nwb": "0.24.x",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
     "shards-react": "^1.0.3"
   },
-  "author": "",
-  "homepage": "",
+  "author": "intercaetera",
+  "homepage": "https://intercaetera.com",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/intercaetera/formuj",
   "keywords": [
-    "react-component"
-  ]
+    "react",
+    "forms",
+    "formik",
+    "form framework"
+  ],
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ]
+  }
 }
