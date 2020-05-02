@@ -10,6 +10,7 @@ const TestInput = ({
 	error,
 	touched,
 	formik,
+	options, // eslint-disable-line no-unused-vars
 	...rest
 }) => {
 	const handleChange = useCallback(event => {

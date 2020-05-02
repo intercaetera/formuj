@@ -10,7 +10,7 @@ export const Form = ({ formik, schema, formContext }) => {
 		const optionsFromKey = field.optionsKey ? formContext[field.optionsKey] : [];
 		const optionsFromField = field.options;
 
-		const options = optionsFromField || optionsFromKey || [];
+		const options = optionsFromField || optionsFromKey || undefined;
 
 		return React.createElement(field.component, {
 			formik,
