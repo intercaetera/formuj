@@ -1,11 +1,21 @@
 import PropTypes from 'prop-types';
 
+export const OptionPropTypes = PropTypes.shape({
+	label: PropTypes.string,
+	value: PropTypes.any,
+});
+
 export const SchemaPropTypes = PropTypes.arrayOf(PropTypes.shape({
 	name: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
 	component: PropTypes.func.isRequired,
-	value: PropTypes.any,
+
 	validators: PropTypes.arrayOf(PropTypes.func),
+
+	value: PropTypes.any,
+
+	optionsKey: PropTypes.string,
+	options: PropTypes.arrayOf(OptionPropTypes),
 }));
 
 export const FormikPropTypes = PropTypes.shape({
