@@ -3,34 +3,67 @@ import React from 'react';
 import { Form, FormikProvider } from '..';
 
 import TestInput from './TestInput.component';
+import TestSelect from './TestSelect.component';
 
 const required = value => value === '' ? 'Required!' : undefined;
+
+export const Labels = {
+	FIRST_NAME: 'First Name',
+	LAST_NAME: 'Last Name',
+	SELECT_FROM_SCHEMA: 'Select From Schema',
+	SELECT_FROM_CONTEXT: 'Select From Context',
+	SUBMIT: 'Submit',
+};
 
 export const schema = [
 	{
 		name: 'firstName',
-		label: 'First Name',
+		label: Labels.FIRST_NAME,
 		value: '',
 		component: TestInput,
 		validators: [required],
 	},
 	{
 		name: 'lastName',
-		label: 'Last Name',
+		label: Labels.LAST_NAME,
 		value: '',
 		component: TestInput,
 		validators: [],
 	},
 ];
 
-export const renderForm = (schema, handleSubmit) => (
+export const selectWithOptionsSchema = [
+	{
+		name: 'selectFromSchema',
+		label: Labels.SELECT_FROM_SCHEMA,
+		value: '',
+		component: TestSelect,
+		options: [
+			{ label: 'Test', value: 'test' },
+		],
+		validators: [],
+	},
+];
+
+export const selectWithOptionsKeySchema = [
+	{
+		name: 'selectFromContext',
+		label: Labels.SELECT_FROM_CONTEXT,
+		value: '',
+		component: TestSelect,
+		optionsKey: 'options',
+		validators: [],
+	},
+];
+
+export const renderForm = (schema, handleSubmit, formContext) => (
 	<FormikProvider
 		schema={schema}
 		onSubmit={handleSubmit}
 		render={({ formik, schema }) => (
 			<>
-				<Form formik={formik} schema={schema} />
-				<button type="submit" onClick={formik.submitForm}>Submit</button>
+				<Form formik={formik} schema={schema} formContext={formContext} />
+				<button type="submit" onClick={formik.submitForm}>{Labels.SUBMIT}</button>
 			</>
 		)}
 	/>

@@ -61,3 +61,15 @@ test('should return the correct error if the value satisfies one validator but n
 	// then
 	expect(validationResult).toEqual(DIV_BY_FIVE_ERROR_MESSAGE);
 });
+
+test('should pass when no validators are provided', () => {
+	// given
+	const validate = chainValidators();
+	const valueToValidate = 2;
+
+	// when
+	const validationResult = validate(valueToValidate);
+
+	// then
+	expect(validationResult).toBe(false);
+});
