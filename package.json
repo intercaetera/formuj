@@ -53,6 +53,7 @@
     "form framework"
   ],
   "jest": {
+		"testMatch": ["**/?(*.)+(spec|test).[jt]s?(x)"],
     "setupFilesAfterEnv": [
       "<rootDir>/setupTests.js"
     ]
