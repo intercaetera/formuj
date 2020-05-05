@@ -4,7 +4,7 @@ import { Button, Card, CardDeck, CardHeader, CardBody } from 'shards-react';
 import { Form, FormikProvider } from '../../../src';
 
 import schema from './schema';
-import {fetchGhibliMovies} from './helpers';
+import { fetchGhibliMovies, capitals } from './helpers';
 
 const SignupForm = () => {
 	const [form, setForm] = useState('{}');
@@ -43,13 +43,14 @@ const SignupForm = () => {
 						<FormikProvider 
 							schema={schema}
 							onSubmit={handleSubmit}
+							validationContext={{ capitals }}
 							render={renderForm}
 						/>
 					</CardBody>
 				</Card>
 				<Card>
 					<CardHeader>Result</CardHeader>
-					<CardBody><pre>{form}</pre></CardBody>
+					<CardBody><pre style={{ fontSize: '1.5rem', lineHeight: '2rem' }}>{form}</pre></CardBody>
 				</Card>
 			</CardDeck>
 		</div>

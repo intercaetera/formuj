@@ -3,6 +3,8 @@ import SelectFormik from './SelectFormik';
 
 import required from '../validators/required';
 import minLength from '../validators/minLength';
+import sameAs from '../validators/sameAs';
+import capitalValidator from '../validators/capitalValidator';
 
 const schema = [
 	{
@@ -21,9 +23,17 @@ const schema = [
 		additionalProps: { type: 'password' },
 	},
 	{
+		name: 'confirmPassword',
+		label: 'Confirm Password',
+		value: '',
+		component: InputFormik,
+		validators: [sameAs('password')],
+		additionalProps: { type: 'password' },
+	},
+	{
 		name: 'country',
 		label: 'Country',
-		value: 'el',
+		value: '',
 		component: SelectFormik,
 		validators: [required],
 		options: [
@@ -31,6 +41,13 @@ const schema = [
 			{ label: 'Greece', value: 'el' },
 			{ label: 'Cyprus', value: 'cy' },
 		],
+	},
+	{
+		name: 'capital',
+		label: 'Capital',
+		value: '',
+		component: InputFormik,
+		validators: [capitalValidator],
 	},
 	{
 		name: 'movie',

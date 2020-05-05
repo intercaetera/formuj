@@ -7,6 +7,7 @@ import { SchemaPropTypes } from './propTypes';
 export const FormikProvider = ({
 	schema,
 	onSubmit,
+	validationContext,
 	render,
 }) => {
 	const initialValues = schema.reduce((initialValues, field) => {
@@ -17,7 +18,7 @@ export const FormikProvider = ({
 	const validate = values => {
 		const errors = schema.reduce((errors, field) => {
 			const fieldValidator = chainValidators(field.validators);
-			const fieldError = fieldValidator(values[field.name]);
+			const fieldError = fieldValidator(values[field.name], formik, validationContext);
 
 			if (fieldError) {
 				errors[field.name] = fieldError;
@@ -41,6 +42,7 @@ export const FormikProvider = ({
 
 FormikProvider.propTypes = {
 	schema: SchemaPropTypes,
-	render: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
+	validationContext: PropTypes.any,
+	render: PropTypes.func.isRequired,
 };
