@@ -11,7 +11,7 @@ export const FormikProvider = ({
 	render,
 }) => {
 	const initialValues = schema.reduce((initialValues, field) => {
-		initialValues[field.name] = field.value;
+		initialValues[field.name] = field.value || ''; // TODO: Add tests for empty values.
 		return initialValues;
 	}, {});
 
@@ -46,3 +46,5 @@ FormikProvider.propTypes = {
 	validationContext: PropTypes.any,
 	render: PropTypes.func.isRequired,
 };
+
+export default FormikProvider;

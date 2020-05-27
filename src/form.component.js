@@ -39,3 +39,5 @@ Form.propTypes = {
 Form.defaultProps = {
 	formContext: {},
 };
+
+export default Form;

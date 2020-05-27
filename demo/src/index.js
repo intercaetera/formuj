@@ -36,7 +36,7 @@ const Demo = () => {
 			</Navbar>
 
 			<Container style={{padding: '2rem', background: '#eee', height: '100%'}}>
-				<SignupForm />
+				<SomethingElse />
 			</Container>
 		</div>
 	);
