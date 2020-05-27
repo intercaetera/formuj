@@ -13,9 +13,40 @@ Formuj is a delightful React form framework and set of patterns built on top of 
 - Formuj is **battle-tested**. The schema pattern has been successfully used in production enterprise applications.
 - Formuj is **Formik**. At the end of the day, you still have access to the underlying Formik API for complicated functionality.
 
-# Example
+## Example
 
-// @TODO
+```js
+import React from 'react';
+
+import Formuj from 'formuj';
+import InputFormik from './SignupForm/InputFormik';
+import required from './validators/required';
+
+const handleSubmit = values => console.log(values);
+
+const SomethingElse = () => {
+	return (
+		<div>
+			<Formuj
+				schema={[
+					{
+						name: 'firstName',
+						label: 'First Name',
+						component: InputFormik,
+					},
+					{
+						name: 'lastName',
+						label: 'Last Name',
+						component: InputFormik,
+						validators: [required],
+					},
+				]}
+				onSubmit={handleSubmit}
+			/>
+		</div>
+	);
+};
+```
 
 [build-badge]: https://img.shields.io/travis/intercaetera/formuj/master.png?style=flat-square
 [build]: https://travis-ci.org/intercaetera/formuj
