@@ -2,6 +2,7 @@ import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 
 import { 
 	schema,
+	schemaWithNoValues,
 	selectWithOptionsSchema,
 	selectWithOptionsKeySchema,
 	renderForm,
@@ -17,6 +18,19 @@ test('renders a basic form', () => {
 	expect(screen.queryByText('First Name')).toBeInTheDocument();
 	expect(screen.queryByText('Last Name')).toBeInTheDocument();
 });
+
+test('if value is not provided, defaults to empty string', async () => {
+	const mockSubmit = jest.fn();
+	const values = { firstName: '', lastName: '' };
+
+	render(renderForm(schemaWithNoValues, mockSubmit));
+
+	await waitFor(() => {
+		fireEvent.click(screen.getByText(Labels.SUBMIT));
+	})
+
+	expect(mockSubmit).toHaveBeenCalledWith(values, formik);
+})
 
 test('when the form is filled in with correct data, it returns an object of values', async () => {
 	const mockSubmit = jest.fn();

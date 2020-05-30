@@ -33,6 +33,10 @@ export const schema = [
 	},
 ];
 
+export const schemaWithNoValues = schema.map(
+	({ value, validators, ...element }) => element
+);
+
 export const selectWithOptionsSchema = [
 	{
 		name: 'selectFromSchema',
