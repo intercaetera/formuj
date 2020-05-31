@@ -4,7 +4,10 @@ import Formuj from '../../src/formuj.component';
 import InputFormik from './SignupForm/InputFormik';
 import required from './validators/required';
 
-const handleSubmit = values => console.log(values);
+const handleSubmit = (values, formikBag) => {
+	console.log(values);
+	formikBag.resetForm();
+};
 
 const SomethingElse = () => {
 	return (

@@ -1,4 +1,8 @@
-# formuj
+<p align="center">
+	<img width="300" height="300" src="https://github.com/intercaetera/formuj/blob/master/formuj-logo.svg">
+</p>
+
+# Formuj
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
