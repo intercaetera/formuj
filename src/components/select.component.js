@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { FormikPropTypes, OptionPropTypes } from '../propTypes';
 
-const Select = ({
+export const Select = ({
 	name,
 	label,
 	value,

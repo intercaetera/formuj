@@ -18,8 +18,7 @@ Formuj is a delightful React form framework and set of patterns built on top of 
 ```js
 import React from 'react';
 
-import Formuj from 'formuj';
-import InputFormik from './SignupForm/InputFormik';
+import Formuj, { Input } from 'formuj';
 import required from './validators/required';
 
 const handleSubmit = values => console.log(values);
@@ -32,12 +31,12 @@ const SomethingElse = () => {
 					{
 						name: 'firstName',
 						label: 'First Name',
-						component: InputFormik,
+						component: Input,
 					},
 					{
 						name: 'lastName',
 						label: 'Last Name',
-						component: InputFormik,
+						component: Input,
 						validators: [required],
 					},
 				]}
