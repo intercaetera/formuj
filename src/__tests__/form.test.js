@@ -27,10 +27,10 @@ test('if value is not provided, defaults to empty string', async () => {
 
 	await waitFor(() => {
 		fireEvent.click(screen.getByText(Labels.SUBMIT));
-	})
+	});
 
 	expect(mockSubmit).toHaveBeenCalledWith(values, formik);
-})
+});
 
 test('when the form is filled in with correct data, it returns an object of values', async () => {
 	const mockSubmit = jest.fn();

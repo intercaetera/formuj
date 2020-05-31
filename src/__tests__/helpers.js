@@ -3,8 +3,8 @@ import React from 'react';
 
 import { Form, FormikProvider } from '..';
 
-import TestInput from './TestInput.component';
-import TestSelect from './TestSelect.component';
+import TestInput from '../components/input.component';
+import TestSelect from '../components/select.component';
 
 const required = value => value === '' ? 'Required!' : undefined;
 
@@ -34,7 +34,7 @@ export const schema = [
 ];
 
 export const schemaWithNoValues = schema.map(
-	({ value, validators, ...element }) => element
+	({ value, validators, ...element }) => element,
 );
 
 export const selectWithOptionsSchema = [

@@ -23,7 +23,10 @@ module.exports = {
 		quotes: ["error", "single"],
 		semi: ["error", "always"],
 		"comma-dangle": ["error", "always-multiline"],
-		ignoreRestSiblings: false,
+
+		"no-unused-vars": ["error", {
+			ignoreRestSiblings: true,
+		}],
 
 		"react/jsx-uses-react": 1,
 		"react/jsx-uses-vars": 1,

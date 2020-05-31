@@ -1,10 +1,9 @@
-// istanbul ignore file
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import { FormikPropTypes } from '../propTypes';
 
-const TestInput = ({
+export const Input = ({
 	name,
 	label,
 	value,
@@ -22,20 +21,21 @@ const TestInput = ({
 	}, [formik, name]);
 
 	return (
-		<div>
-			<label htmlFor={name}>{label}</label>
+		<div className="formuj-control">
+			<label className="formuj-label" htmlFor={name}>{label}</label>
 			<input
+				className="formuj-input"
 				id={name}
 				onChange={handleChange}
 				onBlur={handleBlur}
 				value={value}
 			/>
-			{ touched && error && <div>{error}</div> }
+			{ touched && error && <div className="formuj-error">{error}</div> }
 		</div>
 	);
 };
 
-TestInput.propTypes = {
+Input.propTypes = {
 	name: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
@@ -44,4 +44,4 @@ TestInput.propTypes = {
 	formik: FormikPropTypes,
 };
 
-export default TestInput;
+export default Input;

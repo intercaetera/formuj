@@ -15,7 +15,14 @@ const renderForm = ({ formik, schema, formContext }) => {
 				schema={schema}
 				formContext={formContext}
 			/>
-			<input type="submit" onClick={formik.handleSubmit} />
+
+			<button
+				className="formuj-submit"
+				type="submit"
+				onClick={formik.handleSubmit}
+			>
+				Submit
+			</button>
 		</>
 	);
 }; 
