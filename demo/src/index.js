@@ -9,8 +9,10 @@ import {
 	NavLink,
 	Container,
 } from 'shards-react';
-import SignupForm from './SignupForm/SignupForm';
+
 import BasicForm from './BasicForm';
+import SignupForm from './SignupForm/SignupForm';
+import ConditionalForm from './ConditionalRender/ConditionalForm';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'shards-ui/dist/css/shards.min.css';
@@ -38,12 +40,18 @@ const Demo = () => {
 
 			<Container style={{padding: '2rem', background: '#eee', height: '100%'}} id="basic-form">
 				<h2>Basic Form</h2>
+				<p>The result of submitting this form will appear in the console.</p>
 				<BasicForm />
 			</Container>
 
 			<Container style={{padding: '2rem', background: '#eee', height: '100%'}} id="signup-form">
 				<h2>Signup Form</h2>
-				<SignupForm/>
+				<SignupForm />
+			</Container>
+
+			<Container style={{padding: '2rem', background: '#eee', height: '100%'}} id="conditional-form">
+				<h2>Conditional Form</h2>
+				<ConditionalForm />
 			</Container>
 		</div>
 	);

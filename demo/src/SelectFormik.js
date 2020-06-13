@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { FormSelect, FormGroup } from 'shards-react';
@@ -18,6 +18,14 @@ const SelectFormik = ({
 	options,
 	...rest
 }) => {
+	const optionsWithNull = [{ label: '', value: '' }].concat(options);
+
+	useEffect(() => {
+		const values = optionsWithNull.map(({ value }) => value);
+		if (!values.includes(value)) 
+			formik.setFieldValue(name, '');
+	}, [formik, name, optionsWithNull, value]);
+
 	const handleChange = useCallback(event => {
 		const { value } = event.target;
 		formik.setFieldValue(name, value);
@@ -29,8 +37,6 @@ const SelectFormik = ({
 
 	const isError = touched && !!error;
 	const isValid = touched && !error;
-
-	const optionsWithNull = [{ label: '', value: '' }].concat(options);
 
 	return (
 		<FormGroup>

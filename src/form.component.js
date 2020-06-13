@@ -5,7 +5,21 @@ import { getIn } from 'formik';
 
 import { FormikPropTypes, SchemaPropTypes } from './propTypes';
 
-export const Form = ({ formik, schema, formContext }) => {
+export const Form = ({
+	formik,
+	schema: rawSchema,
+	formContext,
+}) => {
+	const schema = rawSchema.map(field => {
+		return !field.conditions ? field
+			: field.conditions.reduce((options, condition) => {
+				if(condition.when({ formik, formContext }))
+					return { ...field, ...condition.then };
+				else
+					return { ...field, ...condition.otherwise };
+			}, field);
+	});
+
 	const inputs = schema.map(field => {
 		const optionsFromKey = field.optionsKey ? formContext[field.optionsKey] : [];
 		const optionsFromField = field.options;

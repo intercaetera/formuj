@@ -3,14 +3,10 @@ import PropTypes from 'prop-types';
 import { Button } from 'shards-react';
 
 import { Form, FormikProvider } from '../../../src';
-
 import withResults from '../withResults';
-
 import schema from './schema';
 
-const SignupForm = ({
-	handleSubmit,
-}) => {
+const ConditionalForm = ({ handleSubmit }) => {
 	const renderForm = ({ formik, schema }) => {
 		const handleClick = event => {
 			event.preventDefault();
@@ -34,8 +30,8 @@ const SignupForm = ({
 	);
 };
 
-SignupForm.propTypes = {
+ConditionalForm.propTypes = {
 	handleSubmit: PropTypes.func.isRequired,
 };
 
-export default withResults(SignupForm);
+export default withResults(ConditionalForm);
