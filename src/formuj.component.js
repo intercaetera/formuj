@@ -51,7 +51,7 @@ export const Formuj = ({
 };
 
 Formuj.propTypes = {
-	schema: SchemaPropTypes,
+	schema: SchemaPropTypes.isRequired,
 	onSubmit: PropTypes.func.isRequired,
 	validationContext: PropTypes.any,
 	formContext: PropTypes.object,
