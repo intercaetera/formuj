@@ -1,20 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Card, CardDeck, CardHeader, CardBody } from 'shards-react';
 
 import { Form, FormikProvider } from '../../../src';
 
 import schema from './schema';
-import { fetchGhibliMovies, capitals } from './helpers';
+import { capitals } from './helpers';
 
 const SignupForm = () => {
 	const [form, setForm] = useState('{}');
-	const [ghibliMovies, setGhibliMovies] = useState([]);
-
-	useEffect(() => {
-		(async () => {
-			setGhibliMovies(await fetchGhibliMovies());
-		})();
-	}, []);
 
 	const handleSubmit = values => {
 		setForm(JSON.stringify(values, null, 2));
@@ -28,7 +21,7 @@ const SignupForm = () => {
 
 		return (
 			<>
-				<Form formik={formik} schema={schema} formContext={{ ghibliMovies }} />
+				<Form formik={formik} schema={schema} />
 				<Button theme="primary" onClick={handleClick}>Submit</Button>
 			</>
 		);

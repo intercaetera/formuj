@@ -1,17 +1,21 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 
-import {FormGroup, FormInput} from 'shards-react';
+import { FormSelect, FormGroup } from 'shards-react';
+import { FormikPropTypes, OptionPropTypes } from '../../src';
 
-import { FormikPropTypes } from '../../../src';
+const renderOptions = options => options.map(({ value, label }, index) => (
+	<option key={index} value={value}>{label}</option>
+));
 
-const InputFormik = ({ 
+const SelectFormik = ({
 	name,
 	label,
 	value,
 	error,
 	touched,
 	formik,
+	options,
 	...rest
 }) => {
 	const handleChange = useCallback(event => {
@@ -26,10 +30,12 @@ const InputFormik = ({
 	const isError = touched && !!error;
 	const isValid = touched && !error;
 
+	const optionsWithNull = [{ label: '', value: '' }].concat(options);
+
 	return (
 		<FormGroup>
 			<label htmlFor={name}>{label}</label>
-			<FormInput 
+			<FormSelect
 				id={name}
 				onChange={handleChange}
 				onBlur={handleBlur}
@@ -37,19 +43,22 @@ const InputFormik = ({
 				valid={isValid}
 				invalid={isError}
 				{...rest}
-			/>
+			>
+				{renderOptions(optionsWithNull)}
+			</FormSelect>
 			{ isError && <div className="invalid-feedback">{error}</div> }
 		</FormGroup>
 	);
 };
 
-InputFormik.propTypes = {
+SelectFormik.propTypes = {
 	name: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
 	error: PropTypes.string,
 	touched: PropTypes.bool,
 	formik: FormikPropTypes,
+	options: PropTypes.arrayOf(OptionPropTypes),
 };
 
-export default InputFormik;
+export default SelectFormik;

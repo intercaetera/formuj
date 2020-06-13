@@ -1,10 +1,9 @@
-import InputFormik from './InputFormik';
-import SelectFormik from './SelectFormik';
+import InputFormik from '../InputFormik';
+import SelectFormik from '../SelectFormik';
 
 import required from '../validators/required';
 import minLength from '../validators/minLength';
 import sameAs from '../validators/sameAs';
-import capitalValidator from '../validators/capitalValidator';
 
 const schema = [
 	{
@@ -27,7 +26,7 @@ const schema = [
 		label: 'Confirm Password',
 		value: '',
 		component: InputFormik,
-		validators: [sameAs('password')],
+		validators: [sameAs('password'), required],
 		additionalProps: { type: 'password' },
 	},
 	{
@@ -41,21 +40,6 @@ const schema = [
 			{ label: 'Greece', value: 'el' },
 			{ label: 'Cyprus', value: 'cy' },
 		],
-	},
-	{
-		name: 'capital',
-		label: 'Capital',
-		value: '',
-		component: InputFormik,
-		validators: [capitalValidator],
-	},
-	{
-		name: 'movie',
-		label: 'Favourite Studio Ghibli Movie',
-		value: '',
-		component: SelectFormik,
-		optionsKey: 'ghibliMovies',
-		validators: [],
 	},
 ];
 
