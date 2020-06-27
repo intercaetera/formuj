@@ -8,6 +8,8 @@ import TestSelect from '../components/select.component';
 
 const required = value => value === '' ? 'Required!' : undefined;
 
+export const formik = expect.any(Object);
+
 export const Labels = {
 	FIRST_NAME: 'First Name',
 	LAST_NAME: 'Last Name',

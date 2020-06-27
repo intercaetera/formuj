@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {FormGroup, FormInput} from 'shards-react';
 
-import { FormikPropTypes } from '../../../src';
+import { FormikPropTypes } from '../../src';
 
 const InputFormik = ({ 
 	name,

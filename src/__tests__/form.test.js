@@ -6,10 +6,9 @@ import {
 	selectWithOptionsSchema,
 	selectWithOptionsKeySchema,
 	renderForm,
+	formik,
 	Labels,
 } from './helpers';
-
-const formik = expect.any(Object);
 
 test('renders a basic form', () => {
 	const mockSubmit = () => {};

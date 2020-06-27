@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Formuj from '../../src/formuj.component';
-import InputFormik from './SignupForm/InputFormik';
+import InputFormik from './InputFormik';
 import required from './validators/required';
 
 const handleSubmit = (values, formikBag) => {
@@ -9,7 +9,7 @@ const handleSubmit = (values, formikBag) => {
 	formikBag.resetForm();
 };
 
-const SomethingElse = () => {
+const BasicForm = () => {
 	return (
 		<div>
 			<Formuj
@@ -32,4 +32,4 @@ const SomethingElse = () => {
 	);
 };
 
-export default SomethingElse;
+export default BasicForm;
