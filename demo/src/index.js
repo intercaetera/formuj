@@ -46,11 +46,13 @@ const Demo = () => {
 
 			<Container style={{padding: '2rem', background: '#eee', height: '100%'}} id="signup-form">
 				<h2>Signup Form</h2>
+				<p>A basic signup form showcasing the Formuj validators and different components.</p>
 				<SignupForm />
 			</Container>
 
 			<Container style={{padding: '2rem', background: '#eee', height: '100%'}} id="conditional-form">
 				<h2>Conditional Form</h2>
+				<p>In this form, the selection of beverages depends on the user age.</p>
 				<ConditionalForm />
 			</Container>
 		</div>
