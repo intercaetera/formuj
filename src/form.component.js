@@ -7,10 +7,10 @@ import { FormikPropTypes, SchemaPropTypes } from './propTypes';
 
 export const Form = ({
 	formik,
-	schema: rawSchema,
+	schema: unfilteredSchema,
 	formContext,
 }) => {
-	const schema = rawSchema.map(field => {
+	const schema = unfilteredSchema.map(field => {
 		return !field.conditions ? field
 			: field.conditions.reduce((options, condition) => {
 				if(condition.when({ formik, formContext }))

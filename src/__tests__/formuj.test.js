@@ -4,9 +4,7 @@ import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import Input from '../components/input.component';
 import Formuj from '../formuj.component';
 
-import { Labels } from './helpers';
-
-const formik = expect.any(Object);
+import { Labels, formik } from './helpers';
 
 test('renders a form that accepts inputs and can be submitted (readme demo test)', async () => {
 	const mockSubmit = jest.fn();
