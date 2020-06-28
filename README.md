@@ -27,7 +27,7 @@ import required from './validators/required';
 
 const handleSubmit = values => console.log(values);
 
-const SomethingElse = () => {
+const Demo = () => {
 	return (
 		<div>
 			<Formuj
@@ -50,6 +50,12 @@ const SomethingElse = () => {
 	);
 };
 ```
+
+## Credits
+
+Maintainer: @intercaetera
+
+Honourable mention: @adam-golab (for help with initial implementation)
 
 [build-badge]: https://img.shields.io/travis/intercaetera/formuj/master.png?style=flat-square
 [build]: https://travis-ci.org/intercaetera/formuj
