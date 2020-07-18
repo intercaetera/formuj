@@ -1,5 +1,6 @@
 // istanbul ignore file
 import React from 'react';
+import { waitFor, fireEvent } from '@testing-library/react';
 
 import { Form, FormikProvider } from '..';
 
@@ -75,3 +76,7 @@ export const renderForm = (schema, handleSubmit, formContext) => (
 		)}
 	/>
 );
+
+export const changeField = (target, value) => waitFor(() => {
+	fireEvent.change(target, { target: { value } });
+});

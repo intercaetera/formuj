@@ -31,7 +31,10 @@ export const Form = ({
 			label: field.label,
 			name: field.name,
 			options,
-			value: getIn(formik.values, field.name),
+			readOnly: field.readOnly,
+			value: field.valueGetter 
+				? field.valueGetter({ formContext, formik, name: field.name })
+				: getIn(formik.values, field.name),
 			error: getIn(formik.errors, field.name),
 			touched: getIn(formik.touched, field.name),
 			key: field.name,

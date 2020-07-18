@@ -12,16 +12,17 @@ const InputFormik = ({
 	error,
 	touched,
 	formik,
+	readOnly = false,
 	...rest
 }) => {
 	const handleChange = useCallback(event => {
 		const { value } = event.target;
-		formik.setFieldValue(name, value);
-	}, [formik, name]);
+		readOnly || formik.setFieldValue(name, value);
+	}, [formik, name, readOnly]);
 
 	const handleBlur = useCallback(() => {
-		formik.setFieldTouched(name, true);
-	}, [formik, name]);
+		readOnly || formik.setFieldTouched(name, true);
+	}, [formik, name, readOnly]);
 
 	const isError = touched && !!error;
 	const isValid = touched && !error;
@@ -46,7 +47,8 @@ const InputFormik = ({
 InputFormik.propTypes = {
 	name: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired,
+	value: PropTypes.string,
+	readOnly: PropTypes.bool,
 	error: PropTypes.string,
 	touched: PropTypes.bool,
 	formik: FormikPropTypes,

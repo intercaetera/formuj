@@ -10,13 +10,15 @@ export const FormikProvider = ({
 	validationContext,
 	render,
 }) => {
-	const initialValues = schema.reduce((initialValues, field) => {
+	const filteredInputs = schema.filter(field => !field.readOnly);
+
+	const initialValues = filteredInputs.reduce((initialValues, field) => {
 		initialValues[field.name] = field.value || ''; // TODO: Add tests for empty values.
 		return initialValues;
 	}, {});
 
 	const validate = values => {
-		const errors = schema.reduce((errors, field) => {
+		const errors = filteredInputs.reduce((errors, field) => {
 			const fieldValidator = chainValidators(field.validators);
 			const fieldError = fieldValidator(values[field.name], formik, validationContext);
 

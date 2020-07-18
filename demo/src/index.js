@@ -13,6 +13,7 @@ import {
 import BasicForm from './BasicForm';
 import SignupForm from './SignupForm/SignupForm';
 import ConditionalForm from './ConditionalRender/ConditionalForm';
+import ReadOnlyForm from './ReadOnlyRender/ReadOnlyForm';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'shards-ui/dist/css/shards.min.css';
@@ -54,6 +55,12 @@ const Demo = () => {
 				<h2>Conditional Form</h2>
 				<p>In this form, the selection of beverages depends on the user age.</p>
 				<ConditionalForm />
+			</Container>
+
+			<Container style={{padding: '2rem', background: '#eee', height: '100%'}} id="read-only-form">
+				<h2>Read Only Form</h2>
+				<p>This form contains fields which will not be sent to the final result.</p>
+				<ReadOnlyForm />
 			</Container>
 		</div>
 	);

@@ -11,15 +11,16 @@ export const Select = ({
 	touched,
 	options,
 	formik,
+	readOnly,
 }) => {
 	const handleChange = useCallback(event => {
 		const { value } = event.target;
-		formik.setFieldValue(name, value);
-	}, [formik, name]);
+		readOnly || formik.setFieldValue(name, value);
+	}, [formik, name, readOnly]);
 
 	const handleBlur = useCallback(() => {
-		formik.setFieldTouched(name, true);
-	}, [formik, name]);
+		readOnly || formik.setFieldTouched(name, true);
+	}, [formik, name, readOnly]);
 
 	return (
 		<div className="formuj-control">
@@ -47,11 +48,12 @@ export const Select = ({
 Select.propTypes = {
 	name: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired,
+	value: PropTypes.string,
 	error: PropTypes.string,
 	touched: PropTypes.bool,
 	formik: FormikPropTypes,
 	options: PropTypes.arrayOf(OptionPropTypes),
+	readOnly: PropTypes.bool,
 };
 
 export default Select;

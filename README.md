@@ -53,9 +53,9 @@ const Demo = () => {
 
 ## Credits
 
-Maintainer: @intercaetera
+Maintainer: [@intercaetera](https://intercaetera.com)
 
-Honourable mention: @adam-golab (for help with initial implementation)
+Honourable mention: [@adam-golab](https://github.com/adam-golab) (for help with initial implementation)
 
 [build-badge]: https://img.shields.io/travis/intercaetera/formuj/master.png?style=flat-square
 [build]: https://travis-ci.org/intercaetera/formuj

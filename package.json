@@ -1,6 +1,6 @@
 {
   "name": "formuj",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "formuj React component",
   "main": "lib/index.js",
   "module": "es/index.js",
