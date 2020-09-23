@@ -18,7 +18,7 @@ export const FormikProvider = ({
 	}, {});
 
 	const initialTouched = filteredInputs.reduce((initialTouched, field) => {
-		initialTouched[field] = false;
+		initialTouched[field.name] = false;
 		return initialTouched;
 	}, {});
 
