@@ -1,7 +1,7 @@
 import findAndMap from './findAndMap';
 
-const chainValidators = (validators = []) => (value, formik, validationContext, label) => {
-	const error = findAndMap(validators, validator => validator(value, formik, validationContext, label));
+const chainValidators = (validators = []) => (value, label, formik, validationContext) => {
+	const error = findAndMap(validators, validator => validator(value, label, formik, validationContext));
 	if (error) {
 		return error;
 	}

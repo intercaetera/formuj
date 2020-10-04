@@ -33,4 +33,10 @@ export const FormikPropTypes = PropTypes.shape({
 	validateOnBlur: PropTypes.bool.isRequired,
 	validateOnChange: PropTypes.bool.isRequired,
 	validateOnMount: PropTypes.bool.isRequired,
+	setValues: PropTypes.func.isRequired,
+	setFieldValue: PropTypes.func.isRequired,
+	setTouched: PropTypes.func.isRequired,
+	setFieldTouched: PropTypes.func.isRequired,
+	setErrors: PropTypes.func.isRequired,
+	setFieldError: PropTypes.func.isRequired,
 });

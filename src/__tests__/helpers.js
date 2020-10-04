@@ -17,6 +17,7 @@ export const Labels = {
 	SELECT_FROM_SCHEMA: 'Select From Schema',
 	SELECT_FROM_CONTEXT: 'Select From Context',
 	SUBMIT: 'Submit',
+	HANDLE_REF: 'Handle Ref',
 };
 
 export const schema = [
