@@ -19,11 +19,6 @@ export const FormikProvider = ({
 		return initialValues;
 	}, {});
 
-	const initialTouched = filteredInputs.reduce((initialTouched, field) => {
-		initialTouched[field.name] = false;
-		return initialTouched;
-	}, {});
-
 	const validate = values => {
 		const errors = filteredInputs.reduce((errors, field) => {
 			const fieldValidator = chainValidators(field.validators);
@@ -42,7 +37,6 @@ export const FormikProvider = ({
 	const formik = useFormik({
 		onSubmit,
 		initialValues,
-		initialTouched,
 		enableReinitialize: true,
 		validate,
 	});
