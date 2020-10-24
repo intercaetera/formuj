@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'shards-react';
 
-import { Form, FormikProvider } from '../../../src';
+import { useFormuj, Form } from '../../../src';
 
 import withResults from '../withResults';
 
@@ -11,26 +11,21 @@ import schema from './schema';
 const SignupForm = ({
 	handleSubmit,
 }) => {
-	const renderForm = ({ formik, schema }) => {
-		const handleClick = event => {
-			event.preventDefault();
-			formik.submitForm();
-		};
+	const formik = useFormuj({
+		schema,
+		onSubmit: handleSubmit,
+	});
 
-		return (
-			<>
-				<Form formik={formik} schema={schema} />
-				<Button theme="primary" onClick={handleClick}>Submit</Button>
-			</>
-		);
+	const handleClick = event => {
+		event.preventDefault();
+		formik.submitForm();
 	};
 
 	return (
-		<FormikProvider 
-			schema={schema}
-			onSubmit={handleSubmit}
-			render={renderForm}
-		/>
+		<>
+			<Form formik={formik} schema={schema} />
+			<Button theme="primary" onClick={handleClick}>Submit</Button>
+		</>
 	);
 };
 
