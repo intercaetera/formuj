@@ -18,10 +18,10 @@ export const SchemaPropTypes = PropTypes.arrayOf(PropTypes.shape({
 	options: PropTypes.arrayOf(OptionPropTypes),
 }));
 
-const touchedPropType = function () {
+export const TouchedPropTypes = function () {
 	return PropTypes.oneOfType([
-		PropTypes.arrayOf(touchedPropType),
-		PropTypes.objectOf(touchedPropType),
+		PropTypes.arrayOf(TouchedPropTypes),
+		PropTypes.objectOf(TouchedPropTypes),
 		PropTypes.bool,
 	]).apply(this, arguments);
 };
@@ -29,7 +29,7 @@ const touchedPropType = function () {
 export const FormikPropTypes = PropTypes.shape({
 	values: PropTypes.objectOf(PropTypes.any).isRequired,
 	errors: PropTypes.objectOf(PropTypes.string).isRequired,
-	touched: PropTypes.objectOf(touchedPropType).isRequired,
+	touched: PropTypes.objectOf(TouchedPropTypes).isRequired,
 	isSubmitting: PropTypes.bool.isRequired,
 	isValidating: PropTypes.bool.isRequired,
 	submitCount: PropTypes.number.isRequired,
