@@ -12,6 +12,7 @@ export const Select = ({
 	options,
 	formik,
 	readOnly,
+	...additionalProps
 }) => {
 	const handleChange = useCallback(event => {
 		const { value } = event.target;
@@ -31,6 +32,7 @@ export const Select = ({
 				onChange={handleChange}
 				onBlur={handleBlur}
 				value={value}
+				{...additionalProps}
 			>
 				{
 					options.map(({ label, value }, index) => (

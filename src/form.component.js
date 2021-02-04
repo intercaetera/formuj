@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import merge from 'lodash.merge';
 import { getIn } from 'formik';
 
 import { FormikPropTypes, SchemaPropTypes } from './propTypes';
@@ -12,11 +13,11 @@ export const Form = ({
 }) => {
 	const schema = unfilteredSchema.map(field => {
 		return !field.conditions ? field
-			: field.conditions.reduce((options, condition) => {
+			: field.conditions.reduce((field, condition) => {
 				if(condition.when({ formik, formContext }))
-					return { ...field, ...condition.then };
+					return merge(field, condition.then);
 				else
-					return { ...field, ...condition.otherwise };
+					return merge(field, condition.otherwise);
 			}, field);
 	});
 

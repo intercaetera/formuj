@@ -11,6 +11,7 @@ export const Input = ({
 	touched,
 	formik,
 	readOnly,
+	...additionalProps
 }) => {
 	const handleChange = useCallback(event => {
 		const { value } = event.target;
@@ -30,6 +31,7 @@ export const Input = ({
 				onChange={handleChange}
 				onBlur={handleBlur}
 				value={value}
+				{...additionalProps}
 			/>
 			{ touched && error && <div className="formuj-error">{error}</div> }
 		</div>

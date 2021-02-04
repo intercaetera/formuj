@@ -41,6 +41,46 @@ test('conditionally applies schema attributes (when/then/otherwise)', async () =
 	expect(screen.queryByText(NEVER)).not.toBeInTheDocument();
 });
 
+test('correctly applies multiple conditions', async () => {
+	const mockSubmit = () => {};
+	const THEN = 'then';
+	const NEVER = 'never';
+
+	const schema = [
+		{
+			name: 'predicate',
+			label: 'Predicate',
+			component: TestInput,
+		},
+		{
+			name: 'result',
+			label: NEVER,
+			component: TestInput,
+			additionalProps: { type: 'text', title: 'result' },
+			conditions: [{
+				when: ({ formik }) => formik.values.predicate === THEN,
+				then: { label: THEN },
+			},
+			{
+				when: ({ formik }) => formik.values.predicate.startsWith(THEN),
+				then: { additionalProps: { type: 'password' } },
+			}],
+		},
+	];
+
+	render(renderForm(schema, mockSubmit));
+
+	expect(screen.queryByText(THEN)).not.toBeInTheDocument();
+	expect(screen.queryByText(NEVER)).toBeInTheDocument();
+	expect(screen.getByTitle('result')).toHaveAttribute('type', 'text');
+
+	await changeField(screen.getByLabelText('Predicate'), THEN);
+
+	expect(screen.queryByText(THEN)).toBeInTheDocument();
+	expect(screen.queryByText(NEVER)).not.toBeInTheDocument();
+	expect(screen.getByTitle('result')).toHaveAttribute('type', 'password');
+});
+
 test('readOnly fields do not appear in the resulting form submit object', async () => {
 	const mockSubmit = jest.fn();
 	const VISIBLE = 'Visible';
