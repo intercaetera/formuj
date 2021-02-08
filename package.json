@@ -17,7 +17,7 @@
     "start": "nwb serve-react-demo",
     "lint": "eslint src",
     "lint-demo": "eslint demo",
-    "test": "jest --coverage",
+    "test": "jest --coverage --runInBand",
     "test:watch": "jest --watch --verbose"
   },
   "dependencies": {
