@@ -51,6 +51,28 @@ const Demo = () => {
 };
 ```
 
+## Another React form framework?
+
+Formuj was designed with a specific purpose: to build complicated forms rapidly with a reusable library of form controls
+
+### When should you use Formuj?
+
+- Your forms consist primarily of similar components that are reused a lot.
+
+- Your forms have states that depend on previously entered data or validate based on previously entered data.
+
+- You want to use pure JS functions for validation instead of a validation library.
+
+- You often need to prototype forms out of reusable components quickly.
+
+- You are looking for an opinionated way of working with Formik.
+
+### When should you not use Formuj?
+
+- Your forms have a variety of different fields and rarely the same type of form control is used in more than one form.
+
+- Most of your validations are asynchronous.
+
 ## Credits
 
 Maintainer: [@intercaetera](https://intercaetera.com)
