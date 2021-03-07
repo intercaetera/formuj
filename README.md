@@ -51,9 +51,11 @@ const Demo = () => {
 };
 ```
 
+You can also check out the [live demo on CodeSandbox](https://codesandbox.io/s/formuj-demo-yufd9?file=/src/App.js). (More examples in the `demo/src` directory).
+
 ## Another React form framework?
 
-Formuj was designed with a specific purpose: to build complicated forms rapidly with a reusable library of form controls
+Formuj was designed with a specific purpose: to build complicated forms rapidly with a reusable library of form controls.
 
 ### When should you use Formuj?
 
