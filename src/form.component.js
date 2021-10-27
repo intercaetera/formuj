@@ -15,9 +15,9 @@ export const Form = ({
 		return !field.conditions ? field
 			: field.conditions.reduce((field, condition) => {
 				if(condition.when({ formik, formContext }))
-					return merge(field, condition.then);
+					return merge({}, field, condition.then);
 				else
-					return merge(field, condition.otherwise);
+					return merge({}, field, condition.otherwise);
 			}, field);
 	});
 
