@@ -14,9 +14,14 @@ import BasicForm from './BasicForm';
 import SignupForm from './SignupForm/SignupForm';
 import ConditionalForm from './ConditionalRender/ConditionalForm';
 import ReadOnlyForm from './ReadOnlyRender/ReadOnlyForm';
+import FormPartials from './FormPartials/FormPartials';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'shards-ui/dist/css/shards.min.css';
+
+const containerStyle = {
+	padding: '2rem', background: '#eee', height: '100%',
+};
 
 const Demo = () => {
 	return (
@@ -39,28 +44,34 @@ const Demo = () => {
 				</Nav>
 			</Navbar>
 
-			<Container style={{padding: '2rem', background: '#eee', height: '100%'}} id="basic-form">
+			<Container style={containerStyle} id="basic-form">
 				<h2>Basic Form</h2>
 				<p>The result of submitting this form will appear in the console.</p>
 				<BasicForm />
 			</Container>
 
-			<Container style={{padding: '2rem', background: '#eee', height: '100%'}} id="signup-form">
+			<Container style={containerStyle} id="signup-form">
 				<h2>Signup Form</h2>
 				<p>A basic signup form showcasing the Formuj validators and different components.</p>
 				<SignupForm />
 			</Container>
 
-			<Container style={{padding: '2rem', background: '#eee', height: '100%'}} id="conditional-form">
+			<Container style={containerStyle} id="conditional-form">
 				<h2>Conditional Form</h2>
 				<p>In this form, the selection of beverages depends on the user age.</p>
 				<ConditionalForm />
 			</Container>
 
-			<Container style={{padding: '2rem', background: '#eee', height: '100%'}} id="read-only-form">
+			<Container style={containerStyle} id="read-only-form">
 				<h2>Read Only Form</h2>
 				<p>This form contains fields which will not be sent to the final result.</p>
 				<ReadOnlyForm />
+			</Container>
+
+			<Container style={containerStyle} id="form-partials">
+				<h2>Form Partials</h2>
+				<p>This form contains partials which are rendered in separate collapsed accordions.</p>
+				<FormPartials />
 			</Container>
 		</div>
 	);
